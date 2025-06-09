@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title> Unit Conversion </title>
+            
+        <style>
+            .topnav {
+                background-color: #333;
+                overflow: hidden;
+                }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #310ae2e1;
+                color: white;
+            }
+
+            body {
+                margin: auto;
+                background-color:rgb(180, 174, 167);
+                font-family:sans-serif;
+            }
+
+            .all {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(100vh - 50px);
+            }
+
+           input[type=button]{
+                background-color: #32102f;
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;
+                margin: 9px 5px;
+           }
+
+           input[type=button]:hover{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+           }
+
+           input[type=number]{
+                padding: 10px;
+                font-size: 20px;
+           }
+        
+           .card{
+                text-align: center;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+            }
+
+            .card:hover{
+                box-shadow:0 15px 26px 0 rgba(0,0,0,0.2);
+            }
+
+            .container{
+                padding: 50px 30px;
+                background-color: grey;
+            }
+
+            #demo{
+                font-size:20px;
+                color:white;
+            }
+
+            p{
+                color:aliceblue;
+            }
+
+        </style>
+        <script>
+            function convertor(type){
+                let input = parseFloat(document.getElementById("input").value);
+                let result;
+                let unit;
+                if(type == "CM to Metres"){
+                    result = input/100;
+                    unit = "Metres";
+                }
+                else if(type == "Metres to CM"){
+                    result = input*100;
+                    unit = "CM";
+                }
+                else if(type == "Metres to KM"){
+                    result = input/1000;
+                    unit = "KM";
+                }
+                else if(type == "KM to Metres"){
+                    result = input*1000;
+                    unit = "Metres";
+                }
+                document.getElementById("demo").innerHTML = result + " " + unit;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="index.html">Home</a>
+        </div>  
+        <div class = "all">      
+            <div class = "card">
+                <h1> Unit <br>Convertor </h1>
+                <div class = "container">
+                <p>Please Input the number and select the <br>unit of conversion:</P>
+                <input type = "number" id = "input"><br><br>
+                <input type = "button" onclick = "convertor('CM to Metres')" id = "tot" value = "CM to Metres">
+                <input type = "button" onclick = "convertor('Metres to CM')" id = "tot" value = "Metres to CM">
+                <br>
+                <input type = "button" onclick = "convertor('Metres to KM')" id = "tot" value = "Metres to KM">
+                <input type = "button" onclick = "convertor('KM to Metres')" id = "tot" value = "KM to Metres">
+                <p id = "demo"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+<html>
